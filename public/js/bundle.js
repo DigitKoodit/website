@@ -160,7 +160,7 @@ var App = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_Navbar2.default, null),
+        _react2.default.createElement(_Navbar2.default, { history: this.props.history }),
         this.props.children,
         _react2.default.createElement(_Footer2.default, null)
       );
@@ -446,7 +446,7 @@ var Navbar = function (_React$Component) {
       _NavbarStore2.default.listen(this.onChange);
       _NavbarActions2.default.getCharacterCount();
 
-      var socket = io.connect();
+      var socket = io();
 
       socket.on('onlineUsers', function (data) {
         _NavbarActions2.default.updateOnlineUsers(data);
@@ -1221,7 +1221,7 @@ exports.default = _react2.default.createElement(
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -1239,28 +1239,26 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var FooterStore = function () {
-	function FooterStore() {
-		_classCallCheck(this, FooterStore);
+  function FooterStore() {
+    _classCallCheck(this, FooterStore);
 
-		this.bindActions(_FooterActions2.default);
-		this.characters = [];
-	}
+    this.bindActions(_FooterActions2.default);
+    this.characters = [];
+  }
 
-	_createClass(FooterStore, [{
-		key: 'onGetTopCharactersSuccess',
-		value: function onGetTopCharactersSuccess(data) {
-			this.characters = data.slice(0, 5);
-		}
-	}, {
-		key: 'onGetTopCharactersFail',
-		value: function onGetTopCharactersFail(jqXhr) {
-			// Handle multiple response formats, fallback to HTTP status code number.
-			// toastr is non-blocking notifications 
-			toastr.error(jqXhr.responseJSON && jqXhr.responseJSON.message || jqXhr.responseText || jqXhr.statusText);
-		}
-	}]);
+  _createClass(FooterStore, [{
+    key: 'onGetTopCharactersSuccess',
+    value: function onGetTopCharactersSuccess(data) {
+      this.characters = data.slice(0, 5);
+    }
+  }, {
+    key: 'onGetTopCharactersFail',
+    value: function onGetTopCharactersFail(jqXhr) {
+      toastr.error(jqXhr.responseJSON && jqXhr.responseJSON.message || jqXhr.responseText || jqXhr.statusText);
+    }
+  }]);
 
-	return FooterStore;
+  return FooterStore;
 }();
 
 exports.default = _alt2.default.createStore(FooterStore);

@@ -14,7 +14,7 @@ class Navbar extends React.Component {
     NavbarStore.listen(this.onChange);
     NavbarActions.getCharacterCount();
 
-    let socket = io.connect();
+    let socket = io();
 
     socket.on('onlineUsers', (data) => {
       NavbarActions.updateOnlineUsers(data);

@@ -14,6 +14,9 @@ var ReactDOM = require('react-dom/server');
 var Router = require('react-router');
 var routes = require('./app/routes');
 
+
+
+
 // The main server application
 var app = express();
 
@@ -43,10 +46,26 @@ app.use(function(req, res) {
 	});
 });
 
+/** 
+ * Socket.io
+ */
+
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+var onlineUsers = 0;
 
 
+io.on('connection', function(socket) {
+  onlineUsers++;
 
+  io.emit('onlineUsers', { onlineUsers: onlineUsers });
 
-app.listen(app.get('port'), function() {
-	console.log('Express server listening on port ' + app.get('port'));
+  socket.on('disconnect', function() {
+    onlineUsers--;
+    io.emit('onlineUsers', { onlineUsers: onlineUsers });
+  });
+});
+
+server.listen(app.get('port'), function() {
+  console.log('Express server listening on port ' + app.get('port'));
 });
