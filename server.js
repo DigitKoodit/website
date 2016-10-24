@@ -23,8 +23,6 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Location of compiled static files (Gulp)
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res) {
 	Router.match({ routes: routes.default, location: req.url }, function(err, redirectLocation, renderProps) {
