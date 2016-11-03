@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
-import NavbarStore from '../stores/NavbarStore';
-import NavbarActions from '../actions/NavbarActions';
+import NavbarStore from './NavbarStore';
+import NavbarActions from './NavbarActions';
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -10,15 +10,9 @@ class Navbar extends React.Component {
     this.onChange = this.onChange.bind(this);
   }
 
+
   componentDidMount() {
     NavbarStore.listen(this.onChange);
-    NavbarActions.getCharacterCount();
-
-    let socket = io();
-
-    socket.on('onlineUsers', (data) => {
-      NavbarActions.updateOnlineUsers(data);
-    });
 
     $(document).ajaxStart(() => {
       NavbarActions.updateAjaxAnimation('fadeIn');
@@ -41,16 +35,7 @@ class Navbar extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
-    let searchQuery = this.state.searchQuery.trim();
-
-    if (searchQuery) {
-      NavbarActions.findCharacter({
-        searchQuery: searchQuery,
-        searchForm: this.refs.searchForm,
-        history: this.props.history
-      });
-    }
+  
   }
 
   render() {
@@ -64,19 +49,7 @@ class Navbar extends React.Component {
             <span className='icon-bar'></span>
           </button>
           <Link to='/' className='navbar-brand'>
-            <span ref='triangles' className={'triangles animated ' + this.state.ajaxAnimationClass}>
-              <div className='tri invert'></div>
-              <div className='tri invert'></div>
-              <div className='tri'></div>
-              <div className='tri invert'></div>
-              <div className='tri invert'></div>
-              <div className='tri'></div>
-              <div className='tri invert'></div>
-              <div className='tri'></div>
-              <div className='tri invert'></div>
-            </span>
             NEF
-            <span className='badge badge-up badge-danger'>{this.state.onlineUsers}</span>
           </Link>
         </div>
         <div id='navbar' className='navbar-collapse collapse'>

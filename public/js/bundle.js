@@ -2,109 +2,6 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _alt = require('../alt');
-
-var _alt2 = _interopRequireDefault(_alt);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-// Alt is the Dispatcher in Flux architecture
-
-var FooterActions = function () {
-	function FooterActions() {
-		_classCallCheck(this, FooterActions);
-
-		this.generateActions('getTopCharactersSuccess', 'getTopCharactersFail');
-	}
-
-	_createClass(FooterActions, [{
-		key: 'getTopCharacters',
-		value: function getTopCharacters() {
-			var _this = this;
-
-			$.ajax({ url: '/api/characters/top' }).done(function (data) {
-				_this.actions.getTopCharactersSuccess(data);
-			}).fail(function (jqXhr) {
-				_this.actions.getTopCharactersFail(jqXhr);
-			});
-		}
-	}]);
-
-	return FooterActions;
-}();
-
-exports.default = _alt2.default.createActions(FooterActions);
-
-},{"../alt":3}],2:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _alt = require('../alt');
-
-var _alt2 = _interopRequireDefault(_alt);
-
-var _underscore = require('underscore');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var NavbarActions = function () {
-  function NavbarActions() {
-    _classCallCheck(this, NavbarActions);
-
-    this.generateActions('updateOnlineUsers', 'updateAjaxAnimation', 'updateSearchQuery', 'getCharacterCountSuccess', 'getCharacterCountFail', 'findCharacterSuccess', 'findCharacterFail');
-  }
-
-  _createClass(NavbarActions, [{
-    key: 'findCharacter',
-    value: function findCharacter(payload) {
-      var _this = this;
-
-      $.ajax({
-        url: '/api/characters/search',
-        data: { name: payload.searchQuery }
-      }).done(function (data) {
-        (0, _underscore.assign)(payload, data);
-        _this.actions.findCharacterSuccess(payload);
-      }).fail(function () {
-        _this.actions.findCharacterFail(payload);
-      });
-    }
-  }, {
-    key: 'getCharacterCount',
-    value: function getCharacterCount() {
-      var _this2 = this;
-
-      $.ajax({ url: '/api/characters/count' }).done(function (data) {
-        _this2.actions.getCharacterCountSuccess(data);
-      }).fail(function (jqXhr) {
-        _this2.actions.getCharacterCountFail(jqXhr);
-      });
-    }
-  }]);
-
-  return NavbarActions;
-}();
-
-exports.default = _alt2.default.createActions(NavbarActions);
-
-},{"../alt":3,"underscore":"underscore"}],3:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
@@ -116,7 +13,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = new _alt2.default();
 
-},{"alt":"alt"}],4:[function(require,module,exports){
+},{"alt":"alt"}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -129,11 +26,11 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Navbar = require('./Navbar');
+var _Navbar = require('../navbar/Navbar');
 
 var _Navbar2 = _interopRequireDefault(_Navbar);
 
-var _Footer = require('./Footer');
+var _Footer = require('../footer/Footer');
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
@@ -172,7 +69,75 @@ var App = function (_React$Component) {
 
 exports.default = App;
 
-},{"./Footer":5,"./Navbar":7,"react":"react"}],5:[function(require,module,exports){
+},{"../footer/Footer":4,"../navbar/Navbar":8,"react":"react"}],3:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = require('react-router');
+
+var _underscore = require('underscore');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Home = function (_React$Component) {
+  _inherits(Home, _React$Component);
+
+  function Home(props) {
+    _classCallCheck(this, Home);
+
+    return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+  }
+
+  _createClass(Home, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {}
+  }, {
+    key: 'onChange',
+    value: function onChange(state) {
+      this.setState(state);
+    }
+  }, {
+    key: 'handleClick',
+    value: function handleClick(character) {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'container' },
+        _react2.default.createElement(
+          'h3',
+          { className: 'text-center' },
+          'Click on the portrait. Select your favorite.'
+        )
+      );
+    }
+  }]);
+
+  return Home;
+}(_react2.default.Component);
+
+exports.default = Home;
+
+},{"react":"react","react-router":"react-router","underscore":"underscore"}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -191,11 +156,11 @@ var _connectToStores = require('alt-utils/lib/connectToStores');
 
 var _connectToStores2 = _interopRequireDefault(_connectToStores);
 
-var _FooterStore = require('../stores/FooterStore');
+var _FooterStore = require('./FooterStore');
 
 var _FooterStore2 = _interopRequireDefault(_FooterStore);
 
-var _FooterActions = require('../actions/FooterActions');
+var _FooterActions = require('./FooterActions');
 
 var _FooterActions2 = _interopRequireDefault(_FooterActions);
 
@@ -350,7 +315,51 @@ var Footer = function (_React$Component) {
 
 exports.default = Footer;
 
-},{"../actions/FooterActions":1,"../stores/FooterStore":10,"alt-utils/lib/connectToStores":12,"react":"react","react-router":"react-router"}],6:[function(require,module,exports){
+},{"./FooterActions":5,"./FooterStore":6,"alt-utils/lib/connectToStores":12,"react":"react","react-router":"react-router"}],5:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _alt = require('../alt');
+
+var _alt2 = _interopRequireDefault(_alt);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+// Alt is the Dispatcher in Flux architecture
+
+var FooterActions = function () {
+	function FooterActions() {
+		_classCallCheck(this, FooterActions);
+
+		this.generateActions('getTopCharactersSuccess', 'getTopCharactersFail');
+	}
+
+	_createClass(FooterActions, [{
+		key: 'getTopCharacters',
+		value: function getTopCharacters() {
+			var _this = this;
+
+			$.ajax({ url: '/api/characters/top' }).done(function (data) {
+				_this.actions.getTopCharactersSuccess(data);
+			}).fail(function (jqXhr) {
+				_this.actions.getTopCharactersFail(jqXhr);
+			});
+		}
+	}]);
+
+	return FooterActions;
+}();
+
+exports.default = _alt2.default.createActions(FooterActions);
+
+},{"../alt":1}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -359,44 +368,79 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require('react');
+var _alt = require('../alt');
 
-var _react2 = _interopRequireDefault(_react);
+var _alt2 = _interopRequireDefault(_alt);
+
+var _FooterActions = require('./FooterActions');
+
+var _FooterActions2 = _interopRequireDefault(_FooterActions);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+var FooterStore = function () {
+  function FooterStore() {
+    _classCallCheck(this, FooterStore);
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Home = function (_React$Component) {
-  _inherits(Home, _React$Component);
-
-  function Home() {
-    _classCallCheck(this, Home);
-
-    return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
+    this.bindActions(_FooterActions2.default);
+    this.characters = [];
   }
 
-  _createClass(Home, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'alert alert-info' },
-        'Hello from Home Component'
-      );
+  _createClass(FooterStore, [{
+    key: 'onGetTopCharactersSuccess',
+    value: function onGetTopCharactersSuccess(data) {
+      this.characters = data.slice(0, 5);
+    }
+  }, {
+    key: 'onGetTopCharactersFail',
+    value: function onGetTopCharactersFail(jqXhr) {
+      toastr.error(jqXhr.responseJSON && jqXhr.responseJSON.message || jqXhr.responseText || jqXhr.statusText);
     }
   }]);
 
-  return Home;
-}(_react2.default.Component);
+  return FooterStore;
+}();
 
-exports.default = Home;
+exports.default = _alt2.default.createStore(FooterStore);
 
-},{"react":"react"}],7:[function(require,module,exports){
+},{"../alt":1,"./FooterActions":5}],7:[function(require,module,exports){
+'use strict';
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = require('react-router');
+
+var _reactRouter2 = _interopRequireDefault(_reactRouter);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _createBrowserHistory = require('history/lib/createBrowserHistory');
+
+var _createBrowserHistory2 = _interopRequireDefault(_createBrowserHistory);
+
+var _routes = require('./routes');
+
+var _routes2 = _interopRequireDefault(_routes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import Navbar from './components/Navbar';
+
+var history = (0, _createBrowserHistory2.default)();
+
+_reactDom2.default.render(_react2.default.createElement(
+  _reactRouter2.default,
+  { history: history },
+  _routes2.default
+), document.getElementById('app'));
+
+},{"./routes":11,"history/lib/createBrowserHistory":22,"react":"react","react-dom":"react-dom","react-router":"react-router"}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -411,11 +455,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouter = require('react-router');
 
-var _NavbarStore = require('../stores/NavbarStore');
+var _NavbarStore = require('./NavbarStore');
 
 var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
 
-var _NavbarActions = require('../actions/NavbarActions');
+var _NavbarActions = require('./NavbarActions');
 
 var _NavbarActions2 = _interopRequireDefault(_NavbarActions);
 
@@ -444,13 +488,6 @@ var Navbar = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _NavbarStore2.default.listen(this.onChange);
-      _NavbarActions2.default.getCharacterCount();
-
-      var socket = io();
-
-      socket.on('onlineUsers', function (data) {
-        _NavbarActions2.default.updateOnlineUsers(data);
-      });
 
       $(document).ajaxStart(function () {
         _NavbarActions2.default.updateAjaxAnimation('fadeIn');
@@ -476,16 +513,6 @@ var Navbar = function (_React$Component) {
     key: 'handleSubmit',
     value: function handleSubmit(event) {
       event.preventDefault();
-
-      var searchQuery = this.state.searchQuery.trim();
-
-      if (searchQuery) {
-        _NavbarActions2.default.findCharacter({
-          searchQuery: searchQuery,
-          searchForm: this.refs.searchForm,
-          history: this.props.history
-        });
-      }
     }
   }, {
     key: 'render',
@@ -511,25 +538,7 @@ var Navbar = function (_React$Component) {
           _react2.default.createElement(
             _reactRouter.Link,
             { to: '/', className: 'navbar-brand' },
-            _react2.default.createElement(
-              'span',
-              { ref: 'triangles', className: 'triangles animated ' + this.state.ajaxAnimationClass },
-              _react2.default.createElement('div', { className: 'tri invert' }),
-              _react2.default.createElement('div', { className: 'tri invert' }),
-              _react2.default.createElement('div', { className: 'tri' }),
-              _react2.default.createElement('div', { className: 'tri invert' }),
-              _react2.default.createElement('div', { className: 'tri invert' }),
-              _react2.default.createElement('div', { className: 'tri' }),
-              _react2.default.createElement('div', { className: 'tri invert' }),
-              _react2.default.createElement('div', { className: 'tri' }),
-              _react2.default.createElement('div', { className: 'tri invert' })
-            ),
-            'NEF',
-            _react2.default.createElement(
-              'span',
-              { className: 'badge badge-up badge-danger' },
-              this.state.onlineUsers
-            )
+            'NEF'
           )
         ),
         _react2.default.createElement(
@@ -1153,71 +1162,7 @@ var Navbar = function (_React$Component) {
 
 exports.default = Navbar;
 
-},{"../actions/NavbarActions":2,"../stores/NavbarStore":11,"react":"react","react-router":"react-router"}],8:[function(require,module,exports){
-'use strict';
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouter = require('react-router');
-
-var _reactRouter2 = _interopRequireDefault(_reactRouter);
-
-var _reactDom = require('react-dom');
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _createBrowserHistory = require('history/lib/createBrowserHistory');
-
-var _createBrowserHistory2 = _interopRequireDefault(_createBrowserHistory);
-
-var _routes = require('./routes');
-
-var _routes2 = _interopRequireDefault(_routes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// import Navbar from './components/Navbar';
-
-var history = (0, _createBrowserHistory2.default)();
-
-_reactDom2.default.render(_react2.default.createElement(
-  _reactRouter2.default,
-  { history: history },
-  _routes2.default
-), document.getElementById('app'));
-
-},{"./routes":9,"history/lib/createBrowserHistory":22,"react":"react","react-dom":"react-dom","react-router":"react-router"}],9:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouter = require('react-router');
-
-var _App = require('./components/App');
-
-var _App2 = _interopRequireDefault(_App);
-
-var _Home = require('./components/Home');
-
-var _Home2 = _interopRequireDefault(_Home);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _react2.default.createElement(
-  _reactRouter.Route,
-  { component: _App2.default },
-  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Home2.default })
-);
-
-},{"./components/App":4,"./components/Home":6,"react":"react","react-router":"react-router"}],10:[function(require,module,exports){
+},{"./NavbarActions":9,"./NavbarStore":10,"react":"react","react-router":"react-router"}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1230,40 +1175,53 @@ var _alt = require('../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
 
-var _FooterActions = require('../actions/FooterActions');
-
-var _FooterActions2 = _interopRequireDefault(_FooterActions);
+var _underscore = require('underscore');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var FooterStore = function () {
-  function FooterStore() {
-    _classCallCheck(this, FooterStore);
+var NavbarActions = function () {
+  function NavbarActions() {
+    _classCallCheck(this, NavbarActions);
 
-    this.bindActions(_FooterActions2.default);
-    this.characters = [];
+    this.generateActions('updateOnlineUsers', 'updateAjaxAnimation', 'updateSearchQuery', 'getCharacterCountSuccess', 'getCharacterCountFail', 'findCharacterSuccess', 'findCharacterFail');
   }
 
-  _createClass(FooterStore, [{
-    key: 'onGetTopCharactersSuccess',
-    value: function onGetTopCharactersSuccess(data) {
-      this.characters = data.slice(0, 5);
+  _createClass(NavbarActions, [{
+    key: 'findCharacter',
+    value: function findCharacter(payload) {
+      var _this = this;
+
+      $.ajax({
+        url: '/api/characters/search',
+        data: { name: payload.searchQuery }
+      }).done(function (data) {
+        (0, _underscore.assign)(payload, data);
+        _this.actions.findCharacterSuccess(payload);
+      }).fail(function () {
+        _this.actions.findCharacterFail(payload);
+      });
     }
   }, {
-    key: 'onGetTopCharactersFail',
-    value: function onGetTopCharactersFail(jqXhr) {
-      toastr.error(jqXhr.responseJSON && jqXhr.responseJSON.message || jqXhr.responseText || jqXhr.statusText);
+    key: 'getCharacterCount',
+    value: function getCharacterCount() {
+      var _this2 = this;
+
+      $.ajax({ url: '/api/characters/count' }).done(function (data) {
+        _this2.actions.getCharacterCountSuccess(data);
+      }).fail(function (jqXhr) {
+        _this2.actions.getCharacterCountFail(jqXhr);
+      });
     }
   }]);
 
-  return FooterStore;
+  return NavbarActions;
 }();
 
-exports.default = _alt2.default.createStore(FooterStore);
+exports.default = _alt2.default.createActions(NavbarActions);
 
-},{"../actions/FooterActions":1,"../alt":3}],11:[function(require,module,exports){
+},{"../alt":1,"underscore":"underscore"}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1276,7 +1234,7 @@ var _alt = require('../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
 
-var _NavbarActions = require('../actions/NavbarActions');
+var _NavbarActions = require('./NavbarActions');
 
 var _NavbarActions2 = _interopRequireDefault(_NavbarActions);
 
@@ -1340,7 +1298,36 @@ var NavbarStore = function () {
 
 exports.default = _alt2.default.createStore(NavbarStore);
 
-},{"../actions/NavbarActions":2,"../alt":3}],12:[function(require,module,exports){
+},{"../alt":1,"./NavbarActions":9}],11:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = require('react-router');
+
+var _App = require('./base/App');
+
+var _App2 = _interopRequireDefault(_App);
+
+var _Home = require('./base/Home');
+
+var _Home2 = _interopRequireDefault(_Home);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _react2.default.createElement(
+  _reactRouter.Route,
+  { component: _App2.default },
+  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Home2.default })
+);
+
+},{"./base/App":2,"./base/Home":3,"react":"react","react-router":"react-router"}],12:[function(require,module,exports){
 /**
  * 'Higher Order Component' that controls the props of a wrapped
  * component via stores.
@@ -2831,7 +2818,7 @@ module.exports = warning;
 
 }).call(this,require('_process'))
 
-},{"_process":31}]},{},[8])
+},{"_process":31}]},{},[7])
 
 
 //# sourceMappingURL=bundle.js.map

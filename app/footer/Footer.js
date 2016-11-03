@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router'; // For internal navigation between routes
 import connectToStores from 'alt-utils/lib/connectToStores';
-import FooterStore from '../stores/FooterStore';
-import FooterActions from '../actions/FooterActions';
+import FooterStore from './FooterStore';
+import FooterActions from './FooterActions';
 
 // Class is using Flux architecture 
 class Footer extends React.Component {
