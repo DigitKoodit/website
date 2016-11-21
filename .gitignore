@@ -28,3 +28,5 @@ chrome-user-data
 *.iml
 .vscode
 bower_components/
+
+eden_server.js

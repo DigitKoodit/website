@@ -128,12 +128,11 @@ gulp.task('styles', function() {
 
 gulp.task('watch', function() {
   gulp.watch('app/stylesheets/**/*.scss', ['styles']);
-})
+});
 
-//  gulp.task('watch', function() {
+//gulp.task('watch', function() {
 //  gulp.watch('app/stylesheets/**/*.less', ['styles']);
 //});
-
 
 gulp.task('default', ['styles', 'vendor', 'browserify-watch', 'watch']);
 gulp.task('build', ['styles', 'vendor', 'browserify']);

@@ -24,7 +24,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className='container'>
-        <h3 className='text-center'>Click on the portrait. Select your favorite.</h3>
+        <h3 className='text-center'>Digitin nettisivut</h3>
       </div>
     );
   }
