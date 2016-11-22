@@ -30,3 +30,4 @@ chrome-user-data
 bower_components/
 
 eden_server.js
+config.js
