@@ -29,5 +29,11 @@ chrome-user-data
 .vscode
 bower_components/
 
+# Gulp compiles js files
+public/js/* 
+public/bootstrap/*
 eden_server.js
+# PostgreSQL infomation
 config.js
+# Google calendar api keys 
+client_secret.json 

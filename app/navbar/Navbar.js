@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router';
+import { Link } from 'react-router';
 import NavbarStore from './NavbarStore';
 import NavbarActions from './NavbarActions';
 
@@ -35,35 +35,72 @@ class Navbar extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-  
+
   }
 
   render() {
     return (
       <div>
-
-
-      <button type="button" class="btn btn-default">Default</button>
-        <div className="navbar navbar-info">
-          <Link to='/'>
-            <img id='logo' src='/public/img/logo_yellow.png' alt="logo" />
-          </Link>
-        </div>
-        <div className="container">
-          <h2 className="intro-light">Turun yliopiston diplomi-insinööriopiskelijoiden ainejärjestö</h2>
-          <h2 className="intro">Teekkariperinteitä Turussa jo vuodesta 1999</h2>
-        </div>
-        <div id="navbar">
-          <ul role="navigation">
-            <li><a href='/perseesseen'>Etusivu</a></li>
-            <li><Link to='/perustietoa'>Digit ry</Link></li>
-            <li><Link to='/opiskelu'>Opiskelu</Link></li>
-            <li><Link to='/toiminta'>Toiminta</Link></li>
-            <li><Link to='/teekkarius'>Teekkarius</Link></li>
-            <li><Link to='/ilmoittaudu'>Ilmoittaudu</Link></li>
-          </ul>
-        </div>
-       </div>
+        <nav className="navbar" role="navigation">
+          <div className="container">
+            <div className="navbar-header">
+              <p>Turun yliopiston diplomi-insinööriopiskelijoiden ainejärjestö</p>
+              <h5>Teekkariperinteitä Turussa jo vuodesta 1999</h5>
+            </div>
+            <div className="navbar-right">
+              <ul className="nav navbar-nav">
+                <li>
+                  <a href="#">Tapahtumat</a>
+                </li>
+                <li>
+                  <a href="#">Sosiaalinen media</a>
+                </li>
+                <li>
+                  <a href="#">Yhteystiedot</a>
+                </li>
+                <li>
+                  <a href="#"><span className="glyphicon glyphicon-search"></span></a>
+                </li>
+                <li>
+                  <a href="#"><span className="glyphicon glyphicon-user"></span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <nav className="navbar navbar-inverse navbar-mid" role="navigation">
+          <div className="container">
+            <div className="navbar-header">
+              <a className="navbar-brand" href="#">Digit ry</a>
+            </div>
+            <div className="nav-justified">
+              <ul className="nav navbar-nav mid-nav">
+                <li>
+                  <a className="mid-nav-active" href="#">Etusivu</a>
+                </li>
+                <li>
+                  <a href="#">Perustietoa</a>
+                </li>
+                <li>
+                  <a href="#">Toiminta</a>
+                </li>
+                <li>
+                  <a href="#">Opiskelu</a>
+                </li>
+                <li>
+                  <a href="#">Teekkarius</a>
+                </li>
+                <li>
+                  <a href="#">Uudelle opiskelijalle</a>
+                </li>
+                <li>
+                  <a href="#">Ilmoittaudu</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
     );
   }
 }
