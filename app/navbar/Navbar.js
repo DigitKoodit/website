@@ -35,7 +35,6 @@ class Navbar extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
   }
 
   render() {
