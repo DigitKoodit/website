@@ -18,12 +18,12 @@ body {
 }
 
 .image-bg-fluid-height {
-	background: url('http://kuvat.digit.fi/d/40472-1/lakitus201.jpg') no-repeat center center scroll;
+	background: url('http://kuvat.digit.fi/d/35024-1/KMP15-108.jpg') no-repeat center scroll;
     padding: 100px 0;
 }
 
 .image-bg-fixed-height {
-	background: url('http://kuvat.digit.fi/d/40472-1/lakitus201.jpg') no-repeat center center scroll;
+	background: url('http://kuvat.digit.fi/d/35024-1/KMP15-108.jpg') no-repeat center scroll;
     height: 450px;
 }
 

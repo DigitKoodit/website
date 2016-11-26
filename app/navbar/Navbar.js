@@ -41,28 +41,28 @@ class Navbar extends React.Component {
   render() {
     return (
       <div>
-        <nav className="navbar" role="navigation">
+        <nav className="navbar navbar-top" role="navigation">
           <div className="container">
             <div className="navbar-header">
               <p>Turun yliopiston diplomi-insinööriopiskelijoiden ainejärjestö</p>
               <h5>Teekkariperinteitä Turussa jo vuodesta 1999</h5>
             </div>
             <div className="navbar-right">
-              <ul className="nav navbar-nav">
+              <ul className="nav navbar-nav hidden-xs hidden-sm">
                 <li>
-                  <a href="#">Tapahtumat</a>
+                  <a href="#"><span></span>Tapahtumat</a>
                 </li>
                 <li>
-                  <a href="#">Sosiaalinen media</a>
+                  <a href="#"><span></span>Sosiaalinen media</a>
                 </li>
                 <li>
-                  <a href="#">Yhteystiedot</a>
+                  <a href="#"><span></span>Yhteystiedot</a>
                 </li>
                 <li>
-                  <a href="#"><span className="glyphicon glyphicon-search"></span></a>
+                  <a href="#"><span></span><span className="glyphicon glyphicon-search"></span></a>
                 </li>
                 <li>
-                  <a href="#"><span className="glyphicon glyphicon-user"></span></a>
+                  <a href="#"><span></span><span className="glyphicon glyphicon-user"></span></a>
                 </li>
               </ul>
             </div>
@@ -89,9 +89,6 @@ class Navbar extends React.Component {
                 </li>
                 <li>
                   <a href="#">Teekkarius</a>
-                </li>
-                <li>
-                  <a href="#">Uudelle opiskelijalle</a>
                 </li>
                 <li>
                   <a href="#">Ilmoittaudu</a>

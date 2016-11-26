@@ -10,31 +10,41 @@ body {
     font-family: $font-default;
 }
 
-.navbar-mid {
+nav.navbar-top {
+    ul li a:hover {
+        color: #337ab7;
+        background: transparent;
+        span{
+            margin-top: 4px;
+            -webkit-box-shadow: inset 0px -1px 0px 0px #337ab7;
+            -moz-box-shadow: inset 0px -1px 0px 0px #337ab7;
+            box-shadow: inset 0px -1px 0px 0px #337ab7;
+        }
+    }
+}
+
+nav.navbar-mid {
     margin-bottom: 0;
     border: 0;
-}
-
-ul a.mid-nav {
-    background-color: #2d2d2d;
-    -webkit-box-shadow: inset 0px -2px 0px 0px #d8d8d8;
-    -moz-box-shadow: inset 0px -2px 0px 0px #d8d8d8;
-    box-shadow: inset 0px -2px 0px 0px #d8d8d8;
-}
-
-ul a.mid-nav-active {
-    color: #fff;
-    background-color: #2d2d2d;    
-    -webkit-box-shadow: inset 0px -2px 0px 0px #d8d8d8;
-    -moz-box-shadow: inset 0px -2px 0px 0px #d8d8d8;
-    box-shadow: inset 0px -2px 0px 0px #d8d8d8;
-}
-
-ul.mid-nav li:hover {
-    background-color: #2d2d2d;
-    -webkit-box-shadow: inset 0px -2px 0px 0px #6a6a6a;
-    -moz-box-shadow: inset 0px -2px 0px 0px #6a6a6a;
-    box-shadow: inset 0px -2px 0px 0px #6a6a6a;
+    ul a.mid-nav {
+        background-color: #2d2d2d;
+        -webkit-box-shadow: inset 0px -2px 0px 0px #d8d8d8;
+        -moz-box-shadow: inset 0px -2px 0px 0px #d8d8d8;
+        box-shadow: inset 0px -2px 0px 0px #d8d8d8;
+    }
+    ul a.mid-nav-active {
+        color: #fff;
+        background-color: #2d2d2d;
+        -webkit-box-shadow: inset 0px -2px 0px 0px #d8d8d8;
+        -moz-box-shadow: inset 0px -2px 0px 0px #d8d8d8;
+        box-shadow: inset 0px -2px 0px 0px #d8d8d8;
+    }
+    ul.mid-nav li:hover {
+        background-color: #2d2d2d;
+        -webkit-box-shadow: inset 0px -2px 0px 0px #6a6a6a;
+        -moz-box-shadow: inset 0px -2px 0px 0px #6a6a6a;
+        box-shadow: inset 0px -2px 0px 0px #6a6a6a;
+    }
 }
 
 footer {
@@ -57,50 +67,52 @@ footer {
     }
 }
 
- @mixin circle($size: 100px) {
-	width: $size;
-	height: $size;
-  position: relative;
-	
-	-webkit-border-radius: $size / 2 + 0px;
-	-moz-border-radius: $size / 2 + 0px;
-	border-radius: $size / 2 + 0px;
-  
-  & > div, span {
-    width: $size - $size*0.3;
-    height: $size - $size*0.3;
-    position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
-    margin: auto;
-    text-align: center;
-  }
-}   
+@mixin circle($size: 100px) {
+    width: $size;
+    height: $size;
+    position: relative;
+    -webkit-border-radius: $size / 2 + 0px;
+    -moz-border-radius: $size / 2 + 0px;
+    border-radius: $size / 2 + 0px;
+    &>div,
+    span {
+        width: $size - $size*0.3;
+        height: $size - $size*0.3;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+    }
+}
 
 .text-centered {
     text-align: center;
 }
+
 .vertical-center {
     display: inline-block;
     vertical-align: middle;
 }
 
 .text-circle {
-  @include circle(64px);
-  background: #212121;
-  font-size: 20px;
-  
-  display: inline-block;
+    @include circle(64px);
+    background: #212121;
+    font-size: 20px;
+    display: inline-block;
 }
 
 .social-circle {
-  @include circle(64px);
-  background: #212121;
-  display: inline-block;
+    @include circle(64px);
+    background: #212121;
+    display: inline-block;
 }
 
 .social-icon {
-    font-size:48px;
-    color:#fff;
+    font-size: 48px;
+    color: #fff;
 }
 
 hr.line {
@@ -114,27 +126,29 @@ hr.line {
     border-width: 1px;
 }
 
-
 .row-xs-flex-center {
-    display:flex;
-    align-items:center;
+    display: flex;
+    align-items: center;
 }
-@media ( min-width:768px ) {
+
+@media ( min-width:768px) {
     .row-sm-flex-center {
-        display:flex;
-        align-items:center;
+        display: flex;
+        align-items: center;
     }
 }
-@media ( min-width: 992px ) {
+
+@media ( min-width: 992px) {
     .row-md-flex-center {
-        display:flex;
-        align-items:center;
+        display: flex;
+        align-items: center;
     }
 }
-@media ( min-width: 1200px ) {
+
+@media ( min-width: 1200px) {
     .row-lg-flex-center {
-        display:flex;
-        align-items:center;
+        display: flex;
+        align-items: center;
     }
 }
 
@@ -149,6 +163,22 @@ hr.line {
 }
 
 section.dark-section {
-  background: #212121;
-  color:#fff;
+    background: #212121;
+    color: #fff;
+}
+
+#calendar-events {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    li {
+        margin: 16px;
+    }
+}
+
+a.btn-sharp {
+    margin: 16px;
+    border-radius: 0;
 }

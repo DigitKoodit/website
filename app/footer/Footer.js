@@ -30,30 +30,38 @@ class Footer extends React.Component {
                 <div className="container">
                     <div className="row text-centered">
                         <h4>Seuraa meitä:</h4>
-
+                        <br/>
                         <div className="col-lg-4 col-centered">
-                            <span className="fa-stack fa-3x">
-                                <i className="fa fa-circle fa-stack-2x"></i>
-                                <i className="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                            </span>
-                            <span className="fa-stack fa-3x">
-                                <i className="fa fa-circle fa-stack-2x"></i>
-                                <i className="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                            <span className="fa-stack fa-3x">
-                                <i className="fa fa-circle fa-stack-2x"></i>
-                                <i className="fa fa-instagram fa-stack-1x fa-inverse"></i>
-                            </span>
-                            <span className="fa-stack fa-3x">
-                                <i className="fa fa-circle fa-stack-2x"></i>
-                                <i className="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                            </span>
+                            <a href="https://www.facebook.com/digitry/?fref=ts">
+                                <span className="fa-stack fa-3x">
+                                    <i className="fa fa-circle fa-stack-2x"></i>
+                                    <i className="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                            <a href="https://www.instagram.com/digitteekkari/">
+                                <span className="fa-stack fa-3x">
+                                    <i className="fa fa-circle fa-stack-2x"></i>
+                                    <i className="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                            <a href="https://lists.utu.fi/mailman/listinfo/diginfo">
+                                <span className="fa-stack fa-3x">
+                                    <i className="fa fa-circle fa-stack-2x"></i>
+                                    <i className="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                            <a href="https://github.com/DigitKoodit">
+                                <span className="fa-stack fa-3x">
+                                    <i className="fa fa-circle fa-stack-2x"></i>
+                                    <i className="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
                         </div>
                     </div>
                     <br />
                     <div className="row row-sm-flex-center text-centered">
                         <hr className="line" />
-                        <img src="/public/img/digit_small.png"/>
+                        <img src="/public/img/digit_small.png" />
                         <hr className="line" />
                     </div>
 
