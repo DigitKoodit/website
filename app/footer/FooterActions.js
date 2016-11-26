@@ -3,19 +3,14 @@ import alt from '../alt'; // Alt is the Dispatcher in Flux architecture
 class FooterActions {
 	constructor() {
 		this.generateActions(
-			'getTopCharactersSuccess',
-			'getTopCharactersFail'
+			'onCopyrightTextSuccess',
 		);
 	}
 
-	getTopCharacters() {
-		$.ajax({url: '/api/characters/top'})
-			.done((data) => {
-				this.actions.getTopCharactersSuccess(data)
-			})
-			.fail((jqXhr) => {
-				this.actions.getTopCharactersFail(jqXhr)
-			});
+	getCopyrightText() {
+		var year = new Date().getFullYear();
+		let copyrightText = "Copyright © Digit ry 1999-" + year;
+		this.actions.onCopyrightTextSuccess(copyrightText);
 	}
 }
 

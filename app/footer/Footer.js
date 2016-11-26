@@ -14,6 +14,7 @@ class Footer extends React.Component {
 
     componentDidMount() {
         FooterStore.listen(this.onChange);
+        FooterActions.getCopyrightText();
     }
 
     componentWillUnmount() {
@@ -69,7 +70,9 @@ class Footer extends React.Component {
                     <div className="row">
                         <div className="col-lg-9 col-centered text-centered">
                             <ul>
-                                <li><p>Copyright &copy; Digit ry 1999-2016</p></li>
+                            
+                                <li><p>{this.state.copyrightText}</p></li>
+
                                 <li><p><Link to={'/palaute/'}>Palaute</Link></p></li>
                                 <li><p>|</p></li>
                                 <li><p><Link to={'/yhteystiedot/'}>Yhteystiedot</Link></p></li>
