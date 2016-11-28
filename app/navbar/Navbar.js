@@ -75,22 +75,22 @@ class Navbar extends React.Component {
             <div className="nav-justified">
               <ul className="nav navbar-nav mid-nav">
                 <li>
-                  <a className="mid-nav-active" href="#">Etusivu</a>
+                  <Link to='/'>Etusivu</Link>
                 </li>
                 <li>
-                  <a href="#">Perustietoa</a>
+                  <Link to='/perustietoa'>Perustietoa</Link>
                 </li>
                 <li>
-                  <a href="#">Toiminta</a>
+                  <Link to='/toiminta'>Toiminta</Link>
                 </li>
                 <li>
-                  <a href="#">Opiskelu</a>
+                  <Link to='/opiskelu'>Opiskelu</Link>                
                 </li>
                 <li>
-                  <a href="#">Teekkarius</a>
+                  <Link to='/teekkarius'>Teekkarius</Link>
                 </li>
                 <li>
-                  <a href="#">Ilmoittaudu</a>
+                  <Link to='/ilmoittaudu'>Ilmoittaudu</Link>
                 </li>
               </ul>
             </div>

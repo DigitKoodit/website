@@ -61,6 +61,39 @@ diplomi-insinööriopiskelijoiden ainejärjestö, perustettu syksyllä 1999 ja s
             </div>
           </div>
         </section>
+        <br/>
+        <div className="container">
+          <div className="row text-centered">
+            <h4>Seuraa meitä:</h4>
+            <br />
+            <div className="col-lg-4 col-centered">
+              <a href="https://www.facebook.com/digitry/?fref=ts">
+                <span className="fa-stack fa-3x">
+                  <i className="fa fa-circle fa-stack-2x"></i>
+                  <i className="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              <a href="https://www.instagram.com/digitteekkari/">
+                <span className="fa-stack fa-3x">
+                  <i className="fa fa-circle fa-stack-2x"></i>
+                  <i className="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              <a href="https://lists.utu.fi/mailman/listinfo/diginfo">
+                <span className="fa-stack fa-3x">
+                  <i className="fa fa-circle fa-stack-2x"></i>
+                  <i className="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              <a href="https://github.com/DigitKoodit">
+                <span className="fa-stack fa-3x">
+                  <i className="fa fa-circle fa-stack-2x"></i>
+                  <i className="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

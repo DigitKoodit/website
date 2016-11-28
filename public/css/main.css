@@ -38,7 +38,7 @@ nav.navbar-mid {
     display: inline-block;
     height: 100px; }
 
-footer .col-centered {
+.col-centered {
   float: none;
   margin: 0 auto; }
 

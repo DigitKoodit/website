@@ -10,11 +10,11 @@ export default (
     <Route path='/' component={Home} />
     <Route path='/perustietoa' component={BasicInfo} />
     <Route path='/toiminta' component={BasicInfo} />
-    <Route path='/teekkarius' component={Home} />
-    <Route path='/tapahtumat' component={Home} />
-    <Route path='/opikselijalle' component={Home} />
-    <Route path='/palaute' component={Home} />
-    <Route path='/yhteystiedot' component={Home} />
-    <Route path='/webcam' component={Home} />
+    <Route path='/teekkarius' component={BasicInfo} />
+    <Route path='/tapahtumat' component={BasicInfo} />
+    <Route path='/opikselijalle' component={BasicInfo} />
+    <Route path='/palaute' component={BasicInfo} />
+    <Route path='/yhteystiedot' component={BasicInfo} />
+    <Route path='/webcam' component={BasicInfo} />
   </Route>
 );

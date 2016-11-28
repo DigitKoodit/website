@@ -14,8 +14,8 @@ class CalendarStore {
     this.events = data;
   }
 
-  onGetCalendarEventsFail(jqXhr) {
-    toastr.error(jqXhr.responseJSON && jqXhr.responseJSON.message || jqXhr.responseText || jqXhr.statusText);
+  onGetCalendarEventsFail(data) {
+    this.events = data;
   }
 }
 

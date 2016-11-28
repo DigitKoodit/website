@@ -12,13 +12,11 @@ body {
 
 nav.navbar-top {
     margin-top: 20px;
-
     ul li a {
         color: #2d2d2d;
         padding: 10px 0 10px 0;
         margin: 5px 15px 5px 15px;
     }
-    
     ul li a:hover {
         color: #337ab7;
         background: transparent;
@@ -63,11 +61,12 @@ nav.navbar-mid {
     }
 }
 
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
 footer {
-    .col-centered {
-        float: none;
-        margin: 0 auto;
-    }
     ul {
         margin: 0;
         padding: 0;

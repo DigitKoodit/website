@@ -14,7 +14,7 @@ class Calendar extends React.Component {
 
     componentDidMount() {
         CalendarStore.listen(this.onChange);
-        CalendarActions.getCalendarEvents();
+        CalendarActions.tryFetchingCalendar();
     }
 
     componentWillUnmount() {
