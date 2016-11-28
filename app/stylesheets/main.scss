@@ -11,15 +11,20 @@ body {
 }
 
 nav.navbar-top {
+    margin-top: 20px;
+
+    ul li a {
+        color: #2d2d2d;
+        padding: 10px 0 10px 0;
+        margin: 5px 15px 5px 15px;
+    }
+    
     ul li a:hover {
         color: #337ab7;
         background: transparent;
-        span{
-            margin-top: 4px;
-            -webkit-box-shadow: inset 0px -1px 0px 0px #337ab7;
-            -moz-box-shadow: inset 0px -1px 0px 0px #337ab7;
-            box-shadow: inset 0px -1px 0px 0px #337ab7;
-        }
+        -webkit-box-shadow: inset 0px -1px 0px 0px #337ab7;
+        -moz-box-shadow: inset 0px -1px 0px 0px #337ab7;
+        box-shadow: inset 0px -1px 0px 0px #337ab7;
     }
 }
 
@@ -44,6 +49,17 @@ nav.navbar-mid {
         -webkit-box-shadow: inset 0px -2px 0px 0px #6a6a6a;
         -moz-box-shadow: inset 0px -2px 0px 0px #6a6a6a;
         box-shadow: inset 0px -2px 0px 0px #6a6a6a;
+    }
+    .floating-logo {
+        position: absolute;
+        z-index: 5;
+        top: 45px;
+    }
+    #logo {
+        -webkit-filter: drop-shadow(2px 2px 2px #222);
+        filter: drop-shadow(2px 2px 2px #222);
+        display: inline-block;
+        height: 100px;
     }
 }
 

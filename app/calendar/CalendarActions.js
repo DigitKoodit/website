@@ -8,6 +8,10 @@ class CalendarActions {
 		);
 	}
 
+	tryFetchingCalendar() {
+		this.dispatch();
+	}
+
 	getCalendarEvents() {
 		$.ajax({url: '/api/calendarEvents'})
 			.done((data) => {

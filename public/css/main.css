@@ -4,11 +4,15 @@ body {
   height: 100%;
   font-family: "Roboto", sans-serif; }
 
-nav.navbar-top ul li a:hover {
-  color: #337ab7;
-  background: transparent; }
-  nav.navbar-top ul li a:hover span {
-    margin-top: 4px;
+nav.navbar-top {
+  margin-top: 20px; }
+  nav.navbar-top ul li a {
+    color: #2d2d2d;
+    padding: 10px 0 10px 0;
+    margin: 5px 15px 5px 15px; }
+  nav.navbar-top ul li a:hover {
+    color: #337ab7;
+    background: transparent;
     box-shadow: inset 0px -1px 0px 0px #337ab7; }
 
 nav.navbar-mid {
@@ -24,6 +28,15 @@ nav.navbar-mid {
   nav.navbar-mid ul.mid-nav li:hover {
     background-color: #2d2d2d;
     box-shadow: inset 0px -2px 0px 0px #6a6a6a; }
+  nav.navbar-mid .floating-logo {
+    position: absolute;
+    z-index: 5;
+    top: 45px; }
+  nav.navbar-mid #logo {
+    -webkit-filter: drop-shadow(2px 2px 2px #222);
+    filter: drop-shadow(2px 2px 2px #222);
+    display: inline-block;
+    height: 100px; }
 
 footer .col-centered {
   float: none;

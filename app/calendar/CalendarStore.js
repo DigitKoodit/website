@@ -1,18 +1,17 @@
 import alt from '../alt';
 import CalendarActions from './CalendarActions';
-var dateFormat = require('dateformat');
+import CalendarSource from './CalendarSource.js';
 
 class CalendarStore {
   constructor() {
     this.bindActions(CalendarActions);
     this.events = [];
+
+    this.exportAsync(CalendarSource);
   }
 
   onGetCalendarEventsSuccess(data) {
-    this.events = data.events.slice(0,5);
-    this.events.map(function(event) {
-      event.start = dateFormat(event.start, "dddd d.m.yyyy");
-    })
+    this.events = data;
   }
 
   onGetCalendarEventsFail(jqXhr) {

@@ -153,7 +153,7 @@ function listEvents(auth, res) {
 			return;
 		}
 		var events = response.items;
-		var eventsSimple = {events: []};
+		var eventsSimple = { events: [] };
 		if (events.length == 0) {
 			eventsSimple = { result: 'No upcoming events found.' };
 		} else {
@@ -161,8 +161,8 @@ function listEvents(auth, res) {
 				var event = events[i];
 				var start = event.start.dateTime || event.start.date;
 				eventsSimple.events.push({
-					name: event.summary, 
-					start : start
+					name: event.summary,
+					start: start
 				});
 			}
 		}
@@ -180,20 +180,40 @@ app.get('/api/products', db.getMMProducts);
 
 ///// Starting the server ////////
 
+// app.use(function (req, res) {
+// 	Router.match({ routes: routes.default, location: req.url }, function (err, redirectLocation, renderProps) {
+// 		if (err) {
+// 			res.status(500).send(err.message)
+
+// 		} else if (redirectLocation) {
+// 			res.status(302).redirect(redirectLocation.pathname + redirectLocation.search)
+
+// 		} else if (renderProps) {
+// 			var html = ReactDOM.renderToString(React.createElement(Router.RoutingContext, renderProps));
+// 			var page = swig.renderFile('views/index.html', { html: html });
+// 			res.status(200).send(page);
+
+// 		} else {
+// 			res.status(404).send('Page Not Found')
+// 		}
+// 	});
+// });
+
+
+// app.use(express.static(__dirname));
+
 app.use(function (req, res) {
 	Router.match({ routes: routes.default, location: req.url }, function (err, redirectLocation, renderProps) {
 		if (err) {
 			res.status(500).send(err.message)
-
 		} else if (redirectLocation) {
 			res.status(302).redirect(redirectLocation.pathname + redirectLocation.search)
-
 		} else if (renderProps) {
 			var html = ReactDOM.renderToString(React.createElement(Router.RoutingContext, renderProps));
 			var page = swig.renderFile('views/index.html', { html: html });
 			res.status(200).send(page);
-
 		} else {
+			
 			res.status(404).send('Page Not Found')
 		}
 	});
