@@ -11,7 +11,7 @@ class CalendarStore {
   }
 
   onGetCalendarEventsSuccess(data) {
-    this.events = data;
+    this.events = data.events;
   }
 
   onGetCalendarEventsFail(data) {
