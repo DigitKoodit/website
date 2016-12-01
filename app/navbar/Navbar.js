@@ -58,10 +58,11 @@ class Navbar extends React.Component {
                   <a href="#"><span></span>Yhteystiedot</a>
                 </li>
                 <li>
-                  <a href="#"><span></span><span className="glyphicon glyphicon-search"></span></a>
+                  <a href="#"><span></span><i className="fa fa-search fa-2" aria-hidden="true"></i>
+</a>
                 </li>
                 <li>
-                  <a href="#"><span></span><span className="glyphicon glyphicon-user"></span></a>
+                  <a href="#"><span></span><i className="fa fa-user fa-2" aria-hidden="true"></i></a>
                 </li>
               </ul>
             </div>
@@ -76,7 +77,7 @@ class Navbar extends React.Component {
               <ul className="nav navbar-nav mid-nav">
                 <li>
                   <Link to='/'>Etusivu</Link>
-                </li>
+                </li> 
                 <li>
                   <Link to='/perustietoa'>Perustietoa</Link>
                 </li>
@@ -84,7 +85,7 @@ class Navbar extends React.Component {
                   <Link to='/toiminta'>Toiminta</Link>
                 </li>
                 <li>
-                  <Link to='/opiskelu'>Opiskelu</Link>                
+                  <Link to='/opiskelu'>Opiskelu</Link>
                 </li>
                 <li>
                   <Link to='/teekkarius'>Teekkarius</Link>

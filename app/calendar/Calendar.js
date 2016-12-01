@@ -37,7 +37,7 @@ class Calendar extends React.Component {
 
         return (
             <div id="calendar-events">
-                <h2><i className="glyphicon glyphicon-calendar"></i> Tapahtumat</h2>
+                <h2><i className="fa fa-calendar" aria-hidden="true"></i> Tapahtumat</h2>
                 <ul>
                     {calendarEvents}
                 </ul>

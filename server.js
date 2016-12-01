@@ -31,11 +31,11 @@ var app = express();
 var db = require('./queries');
 
 // Basic setup
-app.set('port', process.env.PORT || 8080);
+app.set('port', process.env.PORT || 3000);
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 // Google calendar 
 
